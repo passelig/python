@@ -1,4 +1,5 @@
 import numpy as np
+import math
 import matplotlib.pyplot as plt
 
 def plot_lines(lines):
@@ -16,7 +17,8 @@ def plot_lines(lines):
         end = [start[0] + length * np.cos(angle_rad), start[1] + length * np.sin(angle_rad)]
         plt.plot([start[0], end[0]], [start[1], end[1]], label=f'Length: {length}, Angle: {angle} degrees')
         start = end
-    resultLength = round((end[0]**2+end[1]**2)**0.5,2)
+        
+    resultLength = round(math.sqrt(end[0]**2+end[1]**2),2)
     resultAngle = round(np.rad2deg(np.arctan(end[0]/end[1])),2)
     
     plt.plot([0, end[0]], [0, end[1]], label=f'Length: {resultLength}, Angle: {resultAngle} degrees')
@@ -26,6 +28,8 @@ def plot_lines(lines):
 line1 = [3, 70]  # Line 1 with length 3 and angle 30 degrees
 line2 = [2, -30]  # Line 2 with length 4 and angle 120 degrees
 
+
+line2[1]
 # Plot lines
 plt.figure()
 plot_lines([line1, line2])
