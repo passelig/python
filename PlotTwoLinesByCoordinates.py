@@ -7,7 +7,7 @@ redTethaAngle = math.degrees(math.atan((y1-y0)/(x1-x0)))
 
 # Plot the line
 plt.plot([x0, x1], [y0, y1], color='red')
-plt.plot([x1, x2], [y1, y2], color='blue')
+plt.plot([x1, 14], [y1, 4], color='blue')
 
 
 # Add labels and title

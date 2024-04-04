@@ -5,16 +5,24 @@ class Line:
   def __init__(self, length, angle):
     self.length = length
     self.angle = angle
+    self.radianAngle = np.deg2rad(angle)
+
+class Point:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
 
 def plot_lines(lines):
-    start = [0, 0]
+    start = Point(10,10)
     for line in lines:
         #length, angle = line
-        angle_rad = np.deg2rad(line.angle)
-        end = [start[0] + line.length * np.cos(angle_rad), start[1] + line.length * np.sin(angle_rad)]
-        plt.plot([start[0], end[0]], [start[1], end[1]], label=f'Length: {line.length}, Angle: {line.angle} degrees')
+        #angle_rad = np.deg2rad(line.angle)
+        x = start.x + line.length * np.cos(line.radianAngle)
+        y = start.y + line.length * np.sin(line.radianAngle)
+        end = Point(x,y)
+        plt.plot([start.x, end.x], [start.y, end.y], label=f'Length: {line.length}, Angle: {line.angle} degrees')
         start = end
-    plt.plot([0,end[0]],[0,end[1]])
+    plt.plot([0,end.x],[0,end.y])
 
 
 # Define lines as arrays [length, angle] where angle is in degrees
