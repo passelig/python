@@ -1,41 +1,39 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 class Vector:
-  def __init__(self, length=0, angle=0,x=0,y=0):
-    if (length):
+  def __init__(self, length=0, angleDeg=0,x=0,y=0):
+    if (length>0):
         self.length = length
-        self.angle = angle
+        self.angleDeg = angleDeg
+        self.angleRad = np.deg2rad(angleDeg)
+        self.x = self.length * np.cos(self.angleRad)
+        self.y = self.length * np.sin(self.angleRad)
     else:
-        self.le
-  def radianAngle(self):
-    return np.deg2rad(self.angle)
-  def x(self):
-    return self.length * np.cos(self.radianAngle())
-  def y(self):
-        return self.length * np.sin(self.radianAngle())
-        
-
-class Point:
-    def __init__(self,x,y):
         self.x = x
         self.y = y
+        self.length = math.sqrt(x**2 + y**2)
+        self.angleRad = 0 if (y==0) else math.atan(x/y)
+        self.angleDeg =  np.rad2deg(self.angleRad)
+        
 
 def plot_lines(vectors):
     sumVector = Vector()
     for vector in vectors:
-        x = vector.x() + sumVector.x()
-        y = vector.y() + sumVector.x()
-        plt.plot([sumVector.x(), x], [sumVector.y(), y], label=f'Length: {vector.length}, Angle: {vector.angle} degrees')
-        sumVector= Vector(x=sumVector.x() + x, y=sumVector.y() + y)
-    plt.plot([0,sumVector.x()],[0,sumVector.y])
+        endX = sumVector.x + vector.x
+        endY = sumVector.y + vector.y 
+        plt.plot([sumVector.x , endX], [sumVector.y,endY], label=f'Length: {vector.length:.2f}, Angle: {vector.angleDeg:.2f} degrees')
+        sumVector= Vector(x=endX, y=endY)
+    # finally plot the vector sum
+    plt.plot([0,sumVector.x],[0,sumVector.y])
 
 
 # Define lines as arrays [length, angle] where angle is in degrees
-vector1 = Vector( length=2, angle=70)  # Line 1 with length 3 and angle 30 degrees
-vector2 = Vector( length=3,angle=10)  # Line 2 with length 4 and angle 120 degrees
+vector1 = Vector( x=1, y=2)  # Line 1 with length 3 and angle 30 degrees
+vector2 = Vector( length=3,angleDeg=10)  # Line 2 with length 4 and angle 120 degrees
 
-vector1.radianAngle()
+vector2.angleDeg
 
 # Plot lines
 plt.figure()

@@ -19,6 +19,8 @@ class Vector:
         
 
 def plot_lines(vectors):
+    # plots a list of vectors
+    # initialize start point 
     sumVector = Vector()
     for vector in vectors:
         endX = sumVector.x + vector.x
@@ -39,7 +41,7 @@ vector2.angleDeg
 
 # Plot lines
 plt.figure()
-plot_lines([vector1, vector2, vector3])
+plot_lines([vector1, vector2])
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Simple robot')
