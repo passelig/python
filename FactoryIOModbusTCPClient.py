@@ -3,7 +3,7 @@ import time
 from pyModbusTCP.client import ModbusClient
 
 # init modbus client
-mbClient = ModbusClient(host='10.44.10.60', port=502, auto_open=True, debug=False)
+mbClient = ModbusClient(host='127.0.0.1', port=502, auto_open=True, debug=False)
 
 # main read loop
 
