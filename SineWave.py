@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 x = [0,0.698132,1.39626,2.0944,2.79253,3.49066,4.18879,4.88692,5.58505,6.28319]
 
 # Calculate y values (sine of x)
-y = np.sin(x)
+y = np.(x)
 
 # Plot the sine wave
 plt.plot(x, y)
