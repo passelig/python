@@ -33,8 +33,8 @@ def plot_lines(vectors):
 
 
 # Define lines as arrays [length, anle] where angle is in degrees
-vector1 = Vector(length=3,angleDeg=70 )  # Line 1 with length 3 and angle 30 degrees
-vector2 = Vector( length=3,angleDeg=10)  # Line 2 with length 4 and angle 120 degrees
+vector1 = Vector(length=3,angleDeg=-41.55 )  # Line 1 with length 3 and angle 30 degrees
+vector2 = Vector( length=3,angleDeg=-41.55+135.2S)  # Line 2 with length 4 and angle 120 degrees
 #vector3 = Vector( length=2,angleDeg=-10)
 
 vector2.angleDeg
