@@ -14,11 +14,12 @@ class Vector:
         self.x = x
         self.y = y
         self.length = math.sqrt(x**2 + y**2)
-        self.angleRad = 0 if (y==0) else math.atan(x/y)
+        self.angleRad = 0 if (x==0) else math.atan(y/x)
         self.angleDeg =  np.rad2deg(self.angleRad)
         
 
-def plot_lines(vectors):
+
+def plot_vectors(vectors):
     # plots a list of vectors
     # initialize start point 
     sumVector = Vector()
@@ -33,15 +34,15 @@ def plot_lines(vectors):
 
 
 # Define lines as arrays [length, anle] where angle is in degrees
-vector1 = Vector(length=3,angleDeg=-41.55 )  # Line 1 with length 3 and angle 30 degrees
-vector2 = Vector( length=3,angleDeg=-41.55+135.2S)  # Line 2 with length 4 and angle 120 degrees
+vector1 = Vector(length=3,angleDeg=70 )  # Line 1 with length 3 and angle 30 degrees
+vector2 = Vector( length=2,angleDeg=-30)  # Line 2 with length 4 and angle 120 degrees
 #vector3 = Vector( length=2,angleDeg=-10)
 
 vector2.angleDeg
 
 # Plot lines
 plt.figure()
-plot_lines([vector1, vector2])
+plot_vectors([vector1, vector2])
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Simple robot')
@@ -49,4 +50,3 @@ plt.legend()
 plt.grid()
 plt.gca().set_aspect('equal', adjustable='box')
 plt.show()
-
