@@ -35,7 +35,7 @@ def plot_vectors(vectors):
 
 # Define lines as arrays [length, anle] where angle is in degrees
 vector1 = Vector(length=3,angleDeg=-15.25 )  # Line 1 with length 3 and angle 30 degrees
-vector2 = Vector( length=2,angleDeg=131.8-15.25)  # Line 2 with length 4 and angle 120 degrees
+vector2 = Vector( length=2,angleDeg=171.8-15.25)  # Line 2 with length 4 and angle 120 degrees
 #vector3 = Vector( length=2,angleDeg=-10)
 
 vector2.angleDeg
