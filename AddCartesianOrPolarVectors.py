@@ -1,16 +1,35 @@
+"""
+Created on Thu Aug 22 13:51:28 2024
+
+This program plots two vectors and the resulting sum of these
+
+@author: gunsto
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
 
 class Vector:
+  """
+    This class creates a vector in either polar or cartesian format
+    
+    Example using polar format :
+        vector1 = Vector(length=3,angleDeg= 60)
+    
+    Example using cartesian format :
+        vector1 = Vector(x=3,y= 4)
+    """
   def __init__(self, length=0, angleDeg=0,x=0,y=0):
     if (length>0):
+        # Polar vector : if length > 0 the vector is a polar vector 
         self.length = length
         self.angleDeg = angleDeg
         self.angleRad = np.deg2rad(angleDeg)
         self.x = self.length * np.cos(self.angleRad)
         self.y = self.length * np.sin(self.angleRad)
     else:
+        # Cartesian vector : if length > 0 the vector is a polar vector 
         self.x = x
         self.y = y
         self.length = math.sqrt(x**2 + y**2)
@@ -34,11 +53,10 @@ def plot_vectors(vectors):
 
 
 # Define lines as arrays [length, anle] where angle is in degrees
-vector1 = Vector(length=3,angleDeg=-15.25 )  # Line 1 with length 3 and angle 30 degrees
-vector2 = Vector( length=2,angleDeg=171.8-15.25)  # Line 2 with length 4 and angle 120 degrees
+vector1 = Vector(length=3,angleDeg= 60)  # Line 1 with length 3 and angle 30 degrees
+vector2 = Vector( length=2,angleDeg=-15.25)  # Line 2 with length 4 and angle 120 degrees
 #vector3 = Vector( length=2,angleDeg=-10)
 
-vector2.angleDeg
 
 # Plot lines
 plt.figure()
