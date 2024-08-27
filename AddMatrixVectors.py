@@ -15,7 +15,8 @@ def plot_vectors(vectors):
     # initialize start point 
     sumVector = np.array([0, 0])# null vector
     for vector in vectors: 
-        plt.plot([sumVector[0] , sumVector[0]+vector[0]], [sumVector[1],sumVector[1]+vector[1]], label='Vectors')
+        label = f'Vector [{vector[0]},{vector[1]}]'
+        plt.plot([sumVector[0] , sumVector[0]+vector[0]], [sumVector[1],sumVector[1]+vector[1]], label=label)
         # save endpoints before plotting the next vector
         sumVector= sumVector + vector
     # finally plot the vector sum
@@ -35,9 +36,8 @@ def createCanvasAndPlotVectors():
     plt.show()
     
     
-# Define lines as arrays [length, anle] where angle is in degrees
-vector1 = np.array([2, 5])  # Line 1 with length 3 and angle 30 degrees
-vector2 = np.array([3, 3])  # Line 2 with length 4 and angle 120 degrees
-# vector3 = Vector( x=3.5,y=2.6)
+
+vector1 = np.array([2, 5]) 
+vector2 = np.array([3, 2]) 
 
 createCanvasAndPlotVectors()
