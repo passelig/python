@@ -8,54 +8,31 @@ This program plots two vectors and the resulting sum of these
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
-
-class Vector:
-  """
-    This class creates a vector in either polar or cartesian format
-    
-    Example using polar format :
-        vector1 = Vector(length=3,angleDeg= 60)
-    
-    Example using cartesian format :
-        vector1 = Vector(x=3,y= 4)
-    """
-  def __init__(self, length=0, angleDeg=0,x=0,y=0):
-    if (length>0):
-        # Polar vector : if length > 0 the vector is a polar vector 
-        self.length = length
-        self.angleDeg = angleDeg
-        self.angleRad = np.deg2rad(angleDeg)
-        self.x = self.length * np.cos(self.angleRad)
-        self.y = self.length * np.sin(self.angleRad)
-    else:
-        # Cartesian vector : if length > 0 the vector is a polar vector 
-        self.x = x
-        self.y = y
-        self.length = math.sqrt(x**2 + y**2)
-        self.angleRad = 0 if (x==0) else math.atan(y/x)
-        self.angleDeg =  np.rad2deg(self.angleRad)
-        
 
 
 def plot_vectors(vectors):
     # plots a list of vectors
     # initialize start point 
-    sumVector = Vector()
+    sumVector = np.array([[0], [0]]) 
     for vector in vectors:
-        endX = sumVector.x + vector.x
-        endY = sumVector.y + vector.y 
-        plt.plot([sumVector.x , endX], [sumVector.y,endY], label=f'Length: {vector.length:.2f}, Angle: {vector.angleDeg:.2f} degrees')
+        x1 = sumVector[0][0]
+        x2 = sumVector[0][0]+vector[0][0]
+        y1 =sumVector[1][0]
+        y2 =sumVector[1][0]+vector[1][0]
+        plt.plot([ x1, x2], [y1,y2], label=f'{vector}')
         # save endpoints before plotting the next vector
-        sumVector= Vector(x=endX, y=endY)
+        sumVector = sumVector + vector
     # finally plot the vector sum
-    plt.plot([0,sumVector.x],[0,sumVector.y])
+    plt.plot([0,sumVector[0][0]],[0,sumVector[1][0]])
 
 
-# Define lines as arrays [length, anle] where angle is in degrees
-vector1 = Vector(length=3,angleDeg= 60)  # Line 1 with length 3 and angle 30 degrees
-vector2 = Vector( length=2,angleDeg=-15.25)  # Line 2 with length 4 and angle 120 degrees
-#vector3 = Vector( length=2,angleDeg=-10)
+vector1 = np.array([[2], 
+                    [5]]) 
+
+vector2 = np.array([[3],
+                    [2]]) 
+
+
 
 
 # Plot lines

@@ -35,9 +35,9 @@ def createCanvasAndPlotVectors():
     plt.gca().set_aspect('equal', adjustable='box')
     plt.show()
     
-    
+        
 
-vector1 = np.array([2, 5]) 
+vector1 = np.array([[2], [5]]) 
 vector2 = np.array([3, 2]) 
 
 createCanvasAndPlotVectors()

@@ -21,7 +21,7 @@ def play_game():
     print("Welcome to the Matrix Addition Game!")
     
     # Generate two random 2x2 matrices
-    matrix1 = generate_matrix()
+    matrix1 = np.array([[2],[3]])
     matrix2 = generate_matrix()
     
     # Calculate the correct sum
