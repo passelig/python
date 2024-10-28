@@ -26,7 +26,7 @@ def plot_vectors(vectors):
     sumVector.matrix
     for vector in vectors:
         endX = sumVector.x + vector.x # save endpoints before plotting the next vector
-        endY = sumVector.y + vector.x
+        endY = sumVector.y + vector.y
         plt.plot([sumVector.x , endX], [sumVector.y,endY], 
                  label=f'Length:  Angle: {vector.angleDeg:.2f} degrees')
         sumVector.matrix += vector.matrix
