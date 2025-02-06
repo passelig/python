@@ -2,11 +2,11 @@ import numpy as np
 
 def generate_2x3matrix():
     """Generate a random 2x2 matrix with elements between 1 and 9."""
-    return np.random.randint(1, 5, size=(2, 3))
+    return np.random.randint(-2, 5, size=(2, 3))
 
 def generate_3x2matrix():
     """Generate a random 2x2 matrix with elements between 1 and 9."""
-    return np.random.randint(1, 5, size=(3, 2))
+    return np.random.randint(-2, 5, size=(3, 2))
 
 def get_user_matrix(product_rows,product_columns):
     """Prompt the user to input a 2x2 matrix."""

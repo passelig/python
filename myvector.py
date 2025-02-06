@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov  6 13:20:39 2024
+
+@author: gunsto
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -6,23 +12,18 @@ class Vector:
         # Ensure matrix is initialized as float to prevent type casting issues
         self.matrix = np.array([[x],
                                 [y]], dtype=float)
-    
     @property
     def x(self):
         return self.matrix[0][0]
-
     @property
     def y(self):
         return self.matrix[1][0]
-
     @property
     def angleDeg(self):
         return np.rad2deg(self.angleRad)
-
     @property
     def angleRad(self):
         return np.arctan2(self.y, self.x)
-    
     def rotate(self, radianRotation):
         """Rotates the vector by the specified angle in radians."""
         # Define the rotation matrix
@@ -45,29 +46,3 @@ def plot_vectors(vectors):
         _sumVector.matrix += vector.matrix  # Sum vectors
     # Return the vector sum
     return _sumVector
-
-plt.figure()
-
-# Initialize vectors
-vector1 = Vector(x=3, y=7)
-vector2 = Vector(x=3, y=0)
-vector3 = Vector(x=2, y=-2)
-
-# Rotate vector3 by 45 degrees (π/4 radians) as an example
-vector3.rotate(np.pi / 3)
-
-# Add vectors to list and plot them
-vectorlist = [vector1, vector2, vector3]
-sumVector = plot_vectors(vectorlist)
-
-# Finally plot the sum vector
-plt.plot([0, sumVector.x], [0, sumVector.y], linestyle='--', label="Sum Vector")
-
-# Plot settings
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.title('Simple Robot with Vector Rotation')
-plt.legend()
-plt.grid()
-plt.gca().set_aspect('equal', adjustable='box')
-plt.show()
