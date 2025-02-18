@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#her er endring
 class Line:
   def __init__(self, length, angle):
     self.length = length
@@ -40,4 +39,3 @@ plt.legend()
 plt.grid()
 plt.gca().set_aspect('equal', adjustable='box')
 plt.show()
-
