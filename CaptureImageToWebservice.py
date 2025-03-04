@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 def capture_image():
     """Captures an image from the camera and saves it."""
-    cap = cv2.VideoCapture(2)  # Open camera
+    cap = cv2.VideoCapture(0)  # Open camera
     if not cap.isOpened():
         return None
     
